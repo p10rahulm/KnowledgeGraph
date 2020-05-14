@@ -1,6 +1,12 @@
 function start(){
-    var width = 0.8*screen.width,
-        height = 0.6*screen.height;
+    if(screen.width<500){
+        var width = 0.9*screen.width,
+            height = 0.7*screen.height;
+    } else {
+        var width = 500,
+            height = 500;
+    }
+
 
     var color = d3.scale.category20();
 
