@@ -1,20 +1,39 @@
-
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style>
+<head>
 
-.node {
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
 
-.link {
-  stroke: #999;
-  stroke-opacity: .6;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
 
-</style>
-<body>
+    <!--    <script type="text/javascript" src="assets/js/allJS.min.js"></script>-->
+    <link rel="stylesheet" href="styles.css">
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+
+
+    <link rel="icon" type="image/png" href="nomogram.jpg">
+
+
+    <!--Social Media Tags-->
+    <meta property="og:title" content="Knowledge Graph Example">
+    <meta property="og:site_name" content="Sudoku Solver">
+    <meta property="og:image" itemprop="image" content="https://storage.googleapis.com/knowledge-graph-d3js/nomograph.jpg"/>
+    <meta property="og:updated_time" content="2020-05-14T16:04:00+05:30"/>
+    <meta property="og:description"
+          content="Gives an example of a knowledge graph embedding for three words - 'Hubble deep field',
+          'house of lords' and 'Ichthyosaur' whose meanings are unknown. We try to findi their meanings through
+          other words they are close to in semantics. Our source data is wikipedia">
+    <meta property="og:url" content="https://storage.googleapis.com/knowledge-graph-d3js/index.html">
+    <meta property="og:updated_time" content="1440432930"/>
+    <meta name="twitter:card" content="summary_large_image">
+
+
+<title>Distance between concepts. Graphed using D3JS using simple Knowledge Graph embeddings</title>
+
+</head>
+<body onload="start()">
 <div class="titler"><h1>Graphing the knowledge graph: distance between concepts</h1></div>
 <div class="legend" style="width: 550px;position: absolute;left: 20px;top: 75px;">
 <p style="color:red;font-size:12px">The three concept words chosen here are: a) Hubble Deep Field b) House of Lords and c) Ichthyosaur</p>
@@ -33,59 +52,8 @@
 <li>We repeat for any number of words we like.</li>
 <li>Note that the hubs linking between regions may act as bridges</li>
 </ul></div>
-<script src="//d3js.org/d3.v3.min.js"></script>
-<script>
-
-var width = 960,
-    height = 600;
-
-var color = d3.scale.category20();
-
-var force = d3.layout.force()
-    .charge(-120)
-    .linkDistance(30)
-    .size([width, height]);
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-d3.json("artjson.json", function(error, graph) { //d3.json("artjson.json", function(error, graph) {
-  if (error) throw error;
-
-  force
-      .nodes(graph.nodes)
-      .links(graph.links)
-      .start();
-
-  var link = svg.selectAll(".link")
-      .data(graph.links)
-    .enter().append("line")
-      .attr("class", "link")
-      .style("stroke-width", function(d) { return Math.sqrt(d.value); });
-
-  var node = svg.selectAll(".node")
-      .data(graph.nodes)
-    .enter().append("circle")
-      .attr("class", "node")
-      .attr("r", 5)
-      .style("fill", function(d) { return color(d.group); })
-      .call(force.drag);
-
-  node.append("title")
-      .text(function(d) { return d.name; });
-
-  force.on("tick", function() {
-    link.attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
-
-    node.attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
-  });
-});
-
-</script>
 <div class="footer" style="position:absolute;bottom:15px;font-style:italic;color:blue"><p>Github: https://github.com/p10rahulm/KnowledgeGraph </p></div>
+
+
+
 </body>
