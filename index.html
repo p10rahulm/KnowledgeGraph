@@ -8,18 +8,19 @@
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
 
     <!--    <script type="text/javascript" src="assets/js/allJS.min.js"></script>-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <script src="//d3js.org/d3.v3.min.js"></script>
-    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="assets/js/scripts.js"></script>
 
 
-    <link rel="icon" type="image/png" href="nomogram.jpg">
+    <link rel="icon" type="image/png" href="assets/images/nomogram.jpg">
 
 
     <!--Social Media Tags-->
     <meta property="og:title" content="Knowledge Graph Example">
     <meta property="og:site_name" content="Sudoku Solver">
-    <meta property="og:image" itemprop="image" content="https://storage.googleapis.com/knowledge-graph-d3js/nomogram.jpg"/>
+    <meta property="og:image" itemprop="image"
+          content="https://storage.googleapis.com/knowledge-graph-d3js/assets/images/nomogram.jpg"/>
     <meta property="og:updated_time" content="2020-05-14T16:04:00+05:30"/>
     <meta property="og:description"
           content="Gives an example of a knowledge graph embedding for three words - 'Hubble deep field',
@@ -30,30 +31,53 @@
     <meta name="twitter:card" content="summary_large_image">
 
 
-<title>Distance between concepts. Graphed using D3JS using simple Knowledge Graph embeddings</title>
+    <title>Distance between concepts. Graphed using D3JS using simple Knowledge Graph embeddings</title>
 
 </head>
 <body onload="start()">
-<div class="titler"><h1>Graphing the knowledge graph: distance between concepts</h1></div>
-<div class="legend" style="width: 550px;position: absolute;left: 20px;top: 75px;">
-<p style="color:red;font-size:12px">The three concept words chosen here are: a) Hubble Deep Field b) House of Lords and c) Ichthyosaur</p>
-<p style="font-style:italic;font-size:12px">Hover over a vertex to see the page name. Note 3 distinct regions in the graph</p>
+<div class="container">
+    <div class="header container-element">
+        <div id="HeaderTitle-text" onclick="location.reload()">Graphing the knowledge graph: distance between concepts</div>
+    </div>
+    <div class="mainer container-element">
+        <div id="legend">
+            <div id="decription-text">
+            The three concept words chosen here are: a) Hubble Deep Field b) House of Lords and c) Ichthyosaur
+            <br><br>
+            Hover over a vertex to see the page name. Note 3 distinct regions in the graph
+            </div>
+        </div>
+        <div id="descript" class="home-textpara">
+            <p>Here we have taken the wikipedia links data.</p>
+            <p> The steps in constructing the graph are as follows: </p>
+            <ul>
+                <li>We choose one word to start from the word space</li>
+                <li>We choose all the words that link from the wikipedia page of this word (back into wikipedia). Let us call
+                    this the concept space.
+                </li>
+                <li>We choose the subset of these links that link back into our concept space. This is reinforcement that the
+                    word belongs to the concept space.
+                </li>
+                <li>We repeat for any number of words we like.</li>
+                <li>Note that the hubs linking between regions may act as bridges</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="footer container-element">
+        <div id="copyright">
+            &copy; 2016 <a href="https://github.com/p10rahulm/KnowledgeGraph" target="_blank">Developed by Rahul Madhavan</a>
+        </div>
+
+    </div>
+
 </div>
-<div class="descript" style="    width: 300px;
-    position: absolute;
-    left: 700px;
-    top: 200px;">
-<p>Here we have taken the wikipedia links data.</p>
-<p> The steps in constructing the graph are as follows: </p>
-<ul>
-<li>We choose one word to start from the word space</li>
-<li>We choose all the words that link from the wikipedia page of this word (back into wikipedia). Let us call this the concept space.</li>
-<li>We choose the subset of these links that link back into our concept space. This is reinforcement that the word belongs to the concept space.</li>
-<li>We repeat for any number of words we like.</li>
-<li>Note that the hubs linking between regions may act as bridges</li>
-</ul></div>
-<div class="footer" style="position:absolute;bottom:15px;font-style:italic;color:blue"><p>Github: https://github.com/p10rahulm/KnowledgeGraph </p></div>
+
+
+
+
 
 
 
 </body>
+</html>

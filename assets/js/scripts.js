@@ -1,6 +1,6 @@
 function start(){
-    var width = 960,
-        height = 600;
+    var width = 0.8*screen.width,
+        height = 0.6*screen.height;
 
     var color = d3.scale.category20();
 
@@ -9,11 +9,11 @@ function start(){
         .linkDistance(30)
         .size([width, height]);
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("#legend").append("svg")
         .attr("width", width)
         .attr("height", height);
 
-    d3.json("artjson.json", function(error, graph) { //d3.json("artjson.json", function(error, graph) {
+    d3.json("content/artjson.json", function(error, graph) { //d3.json("artjson.json", function(error, graph) {
         if (error) throw error;
 
         force
