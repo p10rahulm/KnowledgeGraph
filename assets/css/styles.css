@@ -302,3 +302,9 @@ h1{
     color: #ff8a00;
 }
 
+.node{
+    font-weight: 400;
+    font-family: Lora, Georgia, Cambria, Times, "Times New Roman", Serif;
+    stroke: none!important;
+    font-size: 10px;
+}
