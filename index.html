@@ -35,14 +35,17 @@
 <body onload="start()">
 <div class="container">
     <div class="header container-element">
-        <div id="HeaderTitle-text" onclick="location.reload()">Graphing the knowledge graph: distance between concepts</div>
+        <div id="HeaderTitle-text" onclick="location.reload()">Graphing the knowledge graph: distance between concepts
+        </div>
     </div>
     <div class="mainer container-element">
         <div id="legend">
             <div id="decription-text">
-            The three concept words chosen here are: a) Hubble Deep Field b) House of Lords and c) Ichthyosaur
-            <br><br>
-            Hover over a vertex to see the page name. Note 3 distinct regions in the graph
+                The three concept words chosen here are: a) Hubble Deep Field b) House of Lords and c) Ichthyosaur
+                <br><br>
+                Note 3 distinct regions in the graph corresponding to the three words. If the given words were unknown
+                to us at the start, by making such connections, we get to know closely related words and thus can
+                understand the usage contexts of the unknown word
             </div>
         </div>
         <div id="descript" class="home-textpara">
@@ -50,10 +53,12 @@
             <p> The steps in constructing the graph are as follows: </p>
             <ul>
                 <li>We choose one word to start from the word space</li>
-                <li>We choose all the words that link from the wikipedia page of this word (back into wikipedia). Let us call
+                <li>We choose all the words that link from the wikipedia page of this word (back into wikipedia). Let us
+                    call
                     this the concept space.
                 </li>
-                <li>We choose the subset of these links that link back into our concept space. This is reinforcement that the
+                <li>We choose the subset of these links that link back into our concept space. This is reinforcement
+                    that the
                     word belongs to the concept space.
                 </li>
                 <li>We repeat for any number of words we like.</li>
@@ -64,17 +69,13 @@
     </div>
     <div class="footer container-element">
         <div id="copyright">
-            &copy; 2016 <a href="https://github.com/p10rahulm/KnowledgeGraph" target="_blank">Developed by Rahul Madhavan</a>
+            &copy; 2016 <a href="https://github.com/p10rahulm/KnowledgeGraph" target="_blank">Developed by Rahul
+            Madhavan</a>
         </div>
 
     </div>
 
 </div>
-
-
-
-
-
 
 
 </body>

@@ -10,8 +10,8 @@ function start() {
 
     var force = d3.layout.force()
         .gravity(0.25)
-        .distance(50 * refWidth / 250)
-        .charge(-200 * refWidth / 300)
+        .distance(25 * refWidth / 250)
+        .charge(-250 * refWidth / 300)
         .size([width, height])
 
         .size([width, height]);
@@ -28,7 +28,8 @@ function start() {
             .data(json.links)
             .enter().append("line")
             .attr("class", "link")
-            .style("stroke-width", 0.2);
+            .style("stroke-width", 0.1)
+            .style("stroke-opacity", 0.75);
 
         var node = svg.selectAll(".node")
             .data(json.nodes)
